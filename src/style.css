@@ -1,1 +1,27 @@
 @import "tailwindcss";
+
+/* Light theme for lil-gui panels. The doubled class outranks lil-gui's own
+   dark defaults, which it injects after this stylesheet. */
+.lil-gui.lil-gui {
+  --background-color: var(--color-white);
+  --text-color: var(--color-gray-800);
+  --title-background-color: var(--color-gray-200);
+  --title-text-color: var(--color-gray-900);
+  --widget-color: var(--color-gray-200);
+  --hover-color: var(--color-gray-300);
+  --focus-color: var(--color-gray-300);
+  --number-color: var(--color-blue-600);
+  --string-color: var(--color-emerald-600);
+  --font-size: 12px;
+  --input-font-size: 12px;
+  --name-width: 52%;
+}
+
+.lil-gui.autoPlace {
+  top: 1rem;
+  right: 1rem;
+  max-height: calc(100% - 2rem);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden auto;
+}
