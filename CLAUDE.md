@@ -1,6 +1,10 @@
 # CLAUDE.md
 
-A single-page app that shows a 3D model the user can rotate, zoom and pan. Built with Vite, three.js and Tailwind CSS v4, in plain JavaScript (ES modules, no TypeScript or framework).
+An interactive MacPherson strut suspension simulation that explains how the suspension works. Instead of a CAD video, the user gets a working 3D model they can rotate, zoom and pan while it moves, and can explore each part to learn how the parts interact and work together.
+
+The project is built in small steps that the user specifies one at a time. Don't plan or build ahead of the current step.
+
+A single-page app built with Vite, three.js and Tailwind CSS v4, in plain JavaScript (ES modules, no TypeScript or framework).
 
 ## Commands
 

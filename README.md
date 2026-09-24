@@ -1,6 +1,8 @@
 # mc-pherson
 
-A single-page app built with [Vite](https://vite.dev), [three.js](https://threejs.org) and [Tailwind CSS](https://tailwindcss.com). It shows a 3D model the user can rotate, zoom and pan.
+An interactive simulation of a MacPherson strut suspension that explains how it works. Mechanisms like this are usually explained with CAD videos, which are good for showing but not for understanding. Here the suspension is a working 3D model: you can rotate, zoom and pan around it while it moves, and look at each part to see how the parts interact and work together.
+
+Built as a single-page app with [Vite](https://vite.dev), [three.js](https://threejs.org) and [Tailwind CSS](https://tailwindcss.com).
 
 ## Requirements
 
