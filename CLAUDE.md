@@ -41,6 +41,7 @@ src/models/geometry-helpers.js  Rounded outlines, solid sheets, box/tube members
 src/ui/parts-panel.js      lil-gui parts panel: tree of named scene objects with visibility and opacity
 scripts/export-car-body.js Node script behind `yarn export:body`: builds the body geometry and writes the GLB
 public/models/car-body.glb Exported car body model (generated, committed)
+public/favicon.svg         App icon: a gear whose tooth gaps mirror the teeth, so two copies mesh
 src/style.css              Tailwind entry (`@import "tailwindcss"`) and the light lil-gui theme; theme customizations go in @theme
 vite.config.js             Vite config with the @tailwindcss/vite plugin
 ```

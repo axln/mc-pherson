@@ -48,6 +48,7 @@ src/ui/parts-panel.js      lil-gui panel for part visibility and opacity
 src/style.css              Tailwind entry point; add @theme customizations here
 public/                    Static files served as-is
 public/models/car-body.glb Car body model, made by `yarn export:body`
+public/favicon.svg         App icon (gear)
 scripts/export-car-body.js Exports the car body model
 vite.config.js             Vite config with the Tailwind plugin
 ```

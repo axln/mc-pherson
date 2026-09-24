@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="gear-gradient" x1="6" y1="4" x2="58" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff9a3c" />
+      <stop offset="0.35" stop-color="#ff3d8b" />
+      <stop offset="0.7" stop-color="#8b3dff" />
+      <stop offset="1" stop-color="#2ec5ff" />
+    </linearGradient>
+    <radialGradient id="gear-gloss" cx="22" cy="16" r="30" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.45" />
+      <stop offset="1" stop-color="#fff" stop-opacity="0" />
+    </radialGradient>
+    <path id="gear" fill-rule="evenodd" d="M27.37 8.45 L29.19 3.14 A29 29 0 0 1 34.81 3.14 L36.63 8.45 A24 24 0 0 1 40.83 9.69 L45.24 6.2 A29 29 0 0 1 49.97 9.24 L48.63 14.69 A24 24 0 0 1 51.5 18 L57.09 17.45 A29 29 0 0 1 59.42 22.57 L55.34 26.43 A24 24 0 0 1 55.97 30.77 L60.97 33.32 A29 29 0 0 1 60.17 38.89 L54.65 39.94 A24 24 0 0 1 52.83 43.92 L55.65 48.78 A29 29 0 0 1 51.97 53.03 L46.76 50.92 A24 24 0 0 1 43.08 53.29 L42.83 58.9 A29 29 0 0 1 37.43 60.49 L34.19 55.9 A24 24 0 0 1 29.81 55.9 L26.57 60.49 A29 29 0 0 1 21.17 58.9 L20.92 53.29 A24 24 0 0 1 17.24 50.92 L12.03 53.03 A29 29 0 0 1 8.35 48.78 L11.17 43.92 A24 24 0 0 1 9.35 39.94 L3.83 38.89 A29 29 0 0 1 3.03 33.32 L8.03 30.77 A24 24 0 0 1 8.66 26.43 L4.58 22.57 A29 29 0 0 1 6.91 17.45 L12.5 18 A24 24 0 0 1 15.37 14.69 L14.03 9.24 A29 29 0 0 1 18.76 6.2 L23.17 9.69 A24 24 0 0 1 27.37 8.45 Z M32 23 A9 9 0 1 0 32 41 A9 9 0 1 0 32 23 Z" />
+  </defs>
+
+  <use href="#gear" fill="url(#gear-gradient)" />
+  <use href="#gear" fill="url(#gear-gloss)" />
+</svg>
