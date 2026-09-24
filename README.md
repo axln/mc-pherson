@@ -1,6 +1,6 @@
 # mc-pherson
 
-A single-page app built with [Vite](https://vite.dev) and [Tailwind CSS](https://tailwindcss.com).
+A single-page app built with [Vite](https://vite.dev), [three.js](https://threejs.org) and [Tailwind CSS](https://tailwindcss.com). It shows a 3D model the user can rotate, zoom and pan.
 
 ## Requirements
 
@@ -27,9 +27,16 @@ The dev server runs at http://localhost:5173.
 ## Project structure
 
 ```
-index.html       Page markup (styled with Tailwind classes)
-src/main.js      Page scripts
-src/style.css    Tailwind entry point; add @theme customizations here
-public/          Static files served as-is
-vite.config.js   Vite config with the Tailwind plugin
+index.html                 Page markup: a full-screen canvas
+src/main.js                Entry point: creates the viewer and adds the model
+src/viewer/viewer.js       createViewer(): wires the pieces below together
+src/viewer/renderer.js     WebGL renderer
+src/viewer/camera.js       Camera and orbit controls
+src/viewer/environment.js  Scene with background, lights and floor grid
+src/viewer/resize.js       Keeps renderer and camera sized to the canvas
+src/viewer/theme.js        Scene colours
+src/models/                Models shown in the scene
+src/style.css              Tailwind entry point; add @theme customizations here
+public/                    Static files served as-is
+vite.config.js             Vite config with the Tailwind plugin
 ```
