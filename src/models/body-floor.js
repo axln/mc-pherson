@@ -5,7 +5,7 @@ import { boxMember, onBothSides, sheet } from './geometry-helpers.js';
 const floorY = 0.24;
 // The floor runs from inside the toe board back to the heel kick.
 const floorFrontX = 0.7;
-const floorRearX = -1.0;
+const floorRearX = -1.06;
 
 // Cabin floor seen from the front: flat either side of the centre tunnel.
 const floorSection = new THREE.SplineCurve(
@@ -37,12 +37,12 @@ export function tunnelHeightAt(x) {
 // Heel kick up to the rear seat pan, then the trunk floor, seen from the side.
 const rearFloorLine = new THREE.SplineCurve(
   [
-    [-1.0, 0.24],
-    [-1.08, 0.32],
-    [-1.15, 0.42],
-    [-1.3, 0.46],
-    [-2.2, 0.46],
-    [-2.29, 0.5],
+    [-1.06, 0.24],
+    [-1.14, 0.32],
+    [-1.21, 0.42],
+    [-1.36, 0.46],
+    [-2.26, 0.46],
+    [-2.35, 0.5],
   ].map(([x, y]) => new THREE.Vector2(x, y)),
 );
 
@@ -50,10 +50,10 @@ const rearFloorLine = new THREE.SplineCurve(
 const rearRail = [
   [-0.6, 0.175, 0.5],
   [-0.9, 0.175, 0.5],
-  [-1.05, 0.24, 0.5],
-  [-1.2, 0.35, 0.5],
-  [-1.4, 0.4, 0.5],
-  [-2.29, 0.4, 0.5],
+  [-1.11, 0.24, 0.5],
+  [-1.26, 0.35, 0.5],
+  [-1.46, 0.4, 0.5],
+  [-2.35, 0.4, 0.5],
 ];
 
 // Floor pan with its tunnel, seat crossmembers, rear floor and rear rails.

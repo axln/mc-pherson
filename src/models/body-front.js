@@ -25,6 +25,32 @@ const firewallLine = smoothCurve([
 const firewallHalfWidth = 0.78;
 const firewallAtHeight = sampleByAxis(firewallLine, 'y');
 
+// Firewall penetrations, on the driver's side (left-hand drive, sign -1),
+// well inboard of the apron so they open onto clear engine bay.
+// Steering column: from the steering wheel down to a universal joint that
+// drives the rack's pinion.
+const steeringColumnHole = { y: 0.6, z: -0.32, radius: 0.045 };
+// Brake (and, on a manual, clutch) pedal pushrod, into the booster mounted
+// on the engine-bay side. Above and inboard of the front rail, which
+// passes close by on its way up from the toe board.
+const boosterHole = { y: 0.5, z: -0.2, radius: 0.07 };
+
+// Cylinder through the firewall at height y and width z, square to the
+// panel: the panel's cross-section is constant across its width, so its
+// normal there is the in-plane perpendicular of the height curve's
+// tangent. Long enough to cut clean through regardless of which way it
+// points, since a cut doesn't care about the cylinder's direction.
+function firewallHole({ y, z, radius }, length = 0.12) {
+  const eps = 0.002;
+  const tangent = firewallAtHeight(y + eps).clone().sub(firewallAtHeight(y - eps));
+  const normal = new THREE.Vector3(tangent.y, -tangent.x, 0).normalize();
+  const tilt = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), normal);
+  const point = firewallAtHeight(y);
+  return new THREE.CylinderGeometry(radius, radius, length, 20)
+    .applyQuaternion(tilt)
+    .translate(point.x, point.y, z);
+}
+
 // Main rails: under the front of the floor, rising in front of the toe
 // board to just above the wheel centre, then forward to the bumper. Over
 // the wheels they are as low as the driveshafts and tie rods allow: those
@@ -120,17 +146,21 @@ const towerInside = [
 // too, to the upper rail.
 const apronTrimCells = { u: [5, 19], v: [-3, apronGrid.v] };
 
-// Engine bay: firewall and cowl, aprons with strut towers, rails with
-// subframe mounts, radiator support, bumper beam, and the dash crossmember
-// behind the firewall that the steering column bolts to.
+// Engine bay: firewall and cowl (with holes for the steering column and
+// brake booster), aprons with strut towers, rails with subframe mounts,
+// radiator support, bumper beam, and the dash crossmember behind the
+// firewall that the steering column bolts to.
 export function createFrontGeometries() {
-  const firewall = sheet(
-    (u, v) => {
-      const { x, y } = firewallLine.getPoint(u);
-      return [x, y, (2 * v - 1) * firewallHalfWidth];
-    },
-    32,
-    1,
+  const firewall = subtractParts(
+    sheet(
+      (u, v) => {
+        const { x, y } = firewallLine.getPoint(u);
+        return [x, y, (2 * v - 1) * firewallHalfWidth];
+      },
+      32,
+      1,
+    ),
+    [firewallHole(steeringColumnHole), firewallHole(boosterHole)],
   );
   const dashCrossmember = tubeMember(
     [

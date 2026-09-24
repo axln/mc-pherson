@@ -34,7 +34,7 @@ src/models/car-body-geometry.js  createCarBodyGeometry(): the unibody (body-in-w
 src/models/car-body.js     loadCarBody(): loads car-body.glb and gives it the body material
 src/models/body-sides.js   Body side pressings with door openings, roof panel and headers
 src/models/body-floor.js   Floor with tunnel, seat crossmembers, rear floor, rear rails
-src/models/body-front.js   Firewall and cowl, aprons with strut towers on the strut axis (closed to the engine bay, open to the wheel well; rod + bolt holes), rails above the driveshafts with subframe bosses, radiator support, bumper beam, dash crossmember
+src/models/body-front.js   Firewall and cowl with steering-column and brake-booster holes, aprons with strut towers on the strut axis (closed to the engine bay, open to the wheel well; rod + bolt holes), rails above the driveshafts with subframe bosses, radiator support, bumper beam, dash crossmember
 src/models/body-rear.js    Rear wheelhouses, parcel shelf, rear panel, rear bumper beam
 src/models/body-wheelhouses.js  Rear wheelhouse tubs (the front has aprons instead, no tubs)
 src/models/geometry-helpers.js  Rounded outlines, solid sheets, box/tube members, mirroring, CSG union (with cleanup) and subtraction (cutters joined first)
@@ -56,6 +56,7 @@ vite.config.js             Vite config with the @tailwindcss/vite plugin
 - **Style the page with Tailwind classes** in the HTML. Avoid custom CSS unless Tailwind can't express it.
 - **Use local npm packages only**, never CDN script links. Import three.js add-ons from `three/addons/...`.
 - **Body parts are closed solids** (sheets have thickness, members are capped) so `unionParts()` can join them with CSG (`three-bvh-csg`). Overlap parts slightly where they should weld; never let two faces lie flush or nearly tangent, which produces CSG slivers.
+- **The car is left-hand drive.** Anything specific to the driver's side (steering column, pedals) goes on -Z; see `car-dimensions.js`.
 - **Light colour scheme.** Scene colours go in `src/viewer/theme.js`, not inline in setup code.
 - **Orbit controls have no inertia** (damping stays off), so the render loop doesn't call `controls.update()`. Listen to the controls' `change` event for camera moves.
 - Keep the README's project structure in sync when files are added, moved or renamed.

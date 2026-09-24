@@ -1,6 +1,6 @@
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { theme } from '../viewer/theme.js';
+import * as THREE from "three";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { theme } from "../viewer/theme.js";
 
 // Made from car-body-geometry.js by `yarn export:body`.
 const modelUrl = `${import.meta.env.BASE_URL}models/car-body.glb`;
@@ -18,19 +18,20 @@ export async function loadCarBody() {
   // The file shares vertices between triangles to stay small; depth
   // sorting needs every triangle to have its own.
   const body = new THREE.Mesh(geometry.toNonIndexed(), createBodyMaterial());
-  body.name = 'Car body';
+  body.name = "Car body";
   return body;
 }
 
 function createBodyMaterial() {
   return new THREE.MeshStandardMaterial({
     color: theme.carBody,
-    metalness: 0.4,
-    roughness: 0.45,
+    // Primer, not paint: matte, with no metallic sheen.
+    metalness: 0,
+    roughness: 0.95,
     transparent: true,
     opacity: 0.6,
     depthWrite: false,
     side: THREE.DoubleSide,
-    forceSinglePass: true,
+    forceSinglePass: true
   });
 }

@@ -1,10 +1,12 @@
 // Key dimensions of a compact front-wheel-drive sedan, in metres. Front is +X,
 // the car is centred on the origin along X and Z, and the floor is y = 0.
-// Parts are modelled on the right side (+Z) and mirrored to the left.
+// Parts are modelled on the right side (+Z) and mirrored to the left. The
+// car is left-hand drive: the driver, and anything specific to their side
+// (steering column, pedals), is on -Z.
 export const car = {
   sillY: 0.2,
   frontAxleX: 1.3,
-  rearAxleX: -1.35,
+  rearAxleX: -1.41,
   wheelCentreY: 0.32,
   archRadius: 0.37,
   wheelhouseOuterZ: 0.84,
